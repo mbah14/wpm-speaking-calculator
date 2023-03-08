@@ -40,7 +40,7 @@ def get_transcribe_id(token, url):
     json = {
         "audio_url": url
     }
-    headers = {'authorization': st.secret[token]},
+    headers = {'authorization': st.secret[token],
         "content-type": "application/json"
     }
     response = requests.post(endpoint, json=json, headers=headers)
