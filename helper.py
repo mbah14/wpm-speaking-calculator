@@ -40,8 +40,7 @@ def get_transcribe_id(token, url):
     json = {
         "audio_url": url
     }
-    headers = {
-        "authorization": token,
+    headers = {'authorization': st.secret[token]},
         "content-type": "application/json"
     }
     response = requests.post(endpoint, json=json, headers=headers)
@@ -60,11 +59,12 @@ def upload_file(file_obj):
     Returns:
     tuple: A tuple containing the API key and transcription job ID.
     '''
-    #load_dotenv()
-    #token = os.getenv("API_TOKEN")
-    file_url = get_url(token, file_obj)
-    transcribe_id = get_transcribe_id(token, file_url)
-    return token, transcribe_id
+    
+    file_url = get_url(st.secret[token], file_obj)
+    transcribe_id = get_transcribe_id(st.secret[token], file_url)
+    return st.secret[token], transcribe_id
+
+
 
 
 def get_text(token, transcribe_id):
@@ -79,9 +79,7 @@ def get_text(token, transcribe_id):
     dict: The transcription result.
     '''
     endpoint = f"https://api.assemblyai.com/v2/transcript/{transcribe_id}"
-    headers = {
-        "authorization": token
-    }
+    headers = {'authorization': st.secret[token]}
     result = requests.get(endpoint, headers=headers).json()
     return result
 
