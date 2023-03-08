@@ -14,7 +14,7 @@ def get_url(token, file_obj):
     Returns:
     str: The URL to the uploaded file.
     '''
-    headers = {'authorization': token}
+    headers = {'authorization': st.secret[token]}
     response = requests.post(
         'https://api.assemblyai.com/v2/upload',
         headers=headers,
