@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import requests
 
-token = st.secrets["token"]
+token = st.secrets['token']
 
 def get_url(token, file_obj):
     '''
@@ -61,8 +61,8 @@ def upload_file(file_obj):
     Returns:
     tuple: A tuple containing the API key and transcription job ID.
     '''
-    load_dotenv()
-    token = os.getenv("API_TOKEN")
+    # load_dotenv()
+    # token = os.getenv("API_TOKEN")
     file_url = get_url(token, file_obj)
     transcribe_id = get_transcribe_id(token, file_url)
     return token, transcribe_id
