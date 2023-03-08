@@ -60,8 +60,8 @@ def upload_file(file_obj):
     tuple: A tuple containing the API key and transcription job ID.
     '''
     
-    file_url = get_url(st.secret[token], file_obj)
-    transcribe_id = get_transcribe_id(st.secret[token], file_url)
+    file_url = get_url(token, file_obj)
+    transcribe_id = get_transcribe_id(token, file_url)
     return st.secret[token], transcribe_id
 
 
