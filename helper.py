@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import requests
 
-token = st.secret[token]
+token = st.secrets[token]
 
 def get_url(token, file_obj):
     '''
