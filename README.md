@@ -12,7 +12,6 @@ To use the app, simply upload the audio file of the speech that you want to anal
 The following dependencies are required to run the app:
 
 - streamlit: this is use the build the webapp
-- dotenv: stored API_KEY in a secure way
 - requests: HTTP Request
 
 
