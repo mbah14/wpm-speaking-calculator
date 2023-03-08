@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import requests
 
 
@@ -60,8 +60,8 @@ def upload_file(file_obj):
     Returns:
     tuple: A tuple containing the API key and transcription job ID.
     '''
-    load_dotenv()
-    token = os.getenv("API_TOKEN")
+    #load_dotenv()
+    #token = os.getenv("API_TOKEN")
     file_url = get_url(token, file_obj)
     transcribe_id = get_transcribe_id(token, file_url)
     return token, transcribe_id
